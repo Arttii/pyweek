@@ -1,15 +1,17 @@
 import Tkinter
 import random
 import numpy as np
-import Box2D  # The main library
+import Box2D as box  # The main library
 from Box2D.b2 import *  # This maps Box2D.b2Vec2 to vec2 (and so on)
 import pdb
+
+
 # --- constants ---
 # Box2D deals with meters, but we want to display pixels,
 # so define a conversion factor:
 PPM = 20.0  # pixels per meter
 TARGET_FPS = 30
-TIME_STEP = 1.0 / TARGET_FPS
+ITME_STEP = 1.0 / TARGET_FPS
 SCREEN_WIDTH, SCREEN_HEIGHT = 800, 800
 
 # pretty colors
@@ -32,7 +34,8 @@ Tkinter.Canvas.create_circle = _create_circle
 
 # --- pybox2d world setup ---
 # Create the world
-world = world(gravity=(0, -10), doSleep=True)
+world = box.b2World(gravity=(0, -10), doSleep=True)
+
 
 # And a static body to hold the ground shape
 ground_body = world.CreateStaticBody(

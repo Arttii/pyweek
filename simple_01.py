@@ -30,7 +30,6 @@ def _create_circle(self, x, y, r, **kwargs):
 Tkinter.Canvas.create_circle = _create_circle
 
 
-
 # --- pybox2d world setup ---
 # Create the world
 world = world(gravity=(0, -10), doSleep=True)
@@ -50,11 +49,11 @@ body = world.CreateDynamicBody(position=(20, 15))
 circle = body.CreateCircleFixture(radius=0.5, density=1, friction=0.3)
 cpos = circle.shape.pos * PPM
 body.userData = canvas.create_circle(
-    cpos[0], cpos[1], circle.shape.radius*PPM, fill="blue", outline="#DDD", width=4)
+    cpos[0], cpos[1], circle.shape.radius * PPM, fill="blue", outline="#DDD", width=4)
 
 
 items = []
-for body in (dynamic_body,ground_body):  # or: world.bodies
+for body in (dynamic_body, ground_body):  # or: world.bodies
     for fixture in body.fixtures:
         shape = fixture.shape
         print shape
@@ -76,12 +75,12 @@ def update():
 
 def update_circle(circle, body, fixture):
     position = body.transform * circle.pos * PPM
-    x,y=position[0], SCREEN_HEIGHT - position[1]
+    x, y = position[0], SCREEN_HEIGHT - position[1]
 
     canvas_item = body.userData
-    r=circle.radius*PPM
+    r = circle.radius * PPM
 
-    canvas.coords(canvas_item, x-r, y-r, x+r, y+r)
+    canvas.coords(canvas_item, x - r, y - r, x + r, y + r)
 
 
 def update_polygon(polygon, body, fixture):
