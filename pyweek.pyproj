@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{fc3fb19c-16b8-4f34-ade1-86725103d85b}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>simple_01.py</StartupFile>
+    <StartupFile>binball2-22540.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -22,8 +22,7 @@
     <PtvsTargetsFile>$(VSToolsPath)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="binball-14836 %281%29.py" />
-    <Compile Include="binball-14836.py" />
+    <Compile Include="binball2-22540.py" />
     <Compile Include="box2dTest.py" />
     <Compile Include="simple_01.py" />
     <Compile Include="simple_02.py" />
