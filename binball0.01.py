@@ -29,7 +29,7 @@ def drawBinLine(number, x, y):
     canvas.create_text(x + 10, y + 2, anchor='nw',
                        text=str(number).zfill(3), font=('Helvetica', '24'))
     binString = intToBin(number)
-    # print binString
+    #print binString
     xStart = 200
     for i in range(0, 8):
         offset = i * (36 + 20)
@@ -62,6 +62,7 @@ def move_in_direction(itemNumber,target):
 
 
 def moveBall():
+    # dont use global
     global target
     itemNumber = canvas.find_withtag('playerBall')
     move_in_direction(itemNumber,target)
