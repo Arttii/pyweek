@@ -62,7 +62,6 @@ def move_in_direction(itemNumber,target):
 
 
 def moveBall():
-    # dont use global
     global target
     itemNumber = canvas.find_withtag('playerBall')
     move_in_direction(itemNumber,target)
