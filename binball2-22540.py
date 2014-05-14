@@ -1,6 +1,6 @@
 import Tkinter
 import random
-
+import pdb
 
 def intToBin(a):
     # Takes a integer, returns a string with the binary notation
