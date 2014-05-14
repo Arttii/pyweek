@@ -47,7 +47,7 @@ def drawBinLine(number, x, y):
 
 
 def move_in_direction(itemNumber,target):
-
+    #test
     coords = canvas.coords(itemNumber)
 
     # a bit hacky at the moment ball radius etc
