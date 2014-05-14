@@ -59,7 +59,7 @@ def move_in_direction(itemNumber, target):
     velX = (tx / dist) * thrust
     velY = (ty / dist) * thrust
 
-    if dist > 18:
+    if dist > 36/2:
             canvas.move(itemNumber, velX, velY)
 
 
