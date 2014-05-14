@@ -1,6 +1,15 @@
 import Tkinter
 import random
 import pdb
+from math import *
+target = []
+thrust = 10
+
+
+def _create_circle(self, x, y, r, **kwargs):
+    return self.create_oval(x - r, y - r, x + r, y + r, **kwargs)
+Tkinter.Canvas.create_circle = _create_circle
+
 
 def intToBin(a):
     # Takes a integer, returns a string with the binary notation
@@ -37,9 +46,25 @@ def drawBinLine(number, x, y):
                 fill='#2e7b85', activeoutline="red", width=2, tags=('ovalNumber' + str(number) + '_' + str(i), 'oval'))
 
 
+def move_in_direction(itemNumber,target):
+
+    coords = canvas.coords(itemNumber)
+
+
+    tx = target[0] -  (coords[0]+18)
+    ty = target[1] - (coords[1]+18)
+    dist = sqrt(tx * tx + ty * ty)
+
+    velX = (tx / dist) * thrust
+    velY= (ty / dist) * thrust
+    canvas.move(itemNumber, velX, velY)
+
+
 def moveBall():
+    global target 
     itemNumber = canvas.find_withtag('playerBall')
-    canvas.move(itemNumber, 0, 10)
+    move_in_direction(itemNumber,target)
+    #canvas.move(itemNumber, 0, 10)
     coords = canvas.coords(itemNumber)
     if coords[3] > 850:
         canvas.move(itemNumber, 0, -750)
@@ -61,6 +86,8 @@ def drawShootingLine(event, *rest):
 
 
 def mouseClicked(event, *rest):
+    global target #need to put ball in a class
+    target = [event.x, event.y]
     master.after(30, moveBall)
 
 # init Tkinter
@@ -84,10 +111,8 @@ for i in range(0, 15):
 
 # set starting ball
 ballSize = 36
-canvas.create_oval(
-    450 - (ballSize / 2), 100 - (ballSize / 2), 450 +
-    (ballSize / 2), 100 + (ballSize / 2),
-    outline="black", fill='#8800cc', activeoutline="red", width=2, tags=('playerBall'))
+canvas.create_circle(450, 100, ballSize / 2,
+                     outline="black", fill='#8800cc', activeoutline="red", width=2, tags=('playerBall'))
 
 
 # build the shooting line
