@@ -29,7 +29,7 @@ def drawBinLine(number, x, y):
     canvas.create_text(x + 10, y + 2, anchor='nw',
                        text=str(number).zfill(3), font=('Helvetica', '24'))
     binString = intToBin(number)
-    #print binString
+    # print binString
     xStart = 200
     for i in range(0, 8):
         offset = i * (36 + 20)
@@ -46,25 +46,28 @@ def drawBinLine(number, x, y):
                 fill='#2e7b85', activeoutline="red", width=2, tags=('ovalNumber' + str(number) + '_' + str(i), 'oval'))
 
 
-def move_in_direction(itemNumber,target):
+def move_in_direction(itemNumber, target):
 
     coords = canvas.coords(itemNumber)
 
     # a bit hacky at the moment ball radius etc
 
-    tx = target[0] -  (coords[0]+18)
-    ty = target[1] - (coords[1]+18)
+    tx = target[0] - (coords[0] + 18)
+    ty = target[1] - (coords[1] + 18)
     dist = sqrt(tx * tx + ty * ty)
 
     velX = (tx / dist) * thrust
-    velY= (ty / dist) * thrust
-    canvas.move(itemNumber, velX, velY)
+    velY = (ty / dist) * thrust
+
+    if dist > 18:
+            canvas.move(itemNumber, velX, velY)
+
 
 
 def moveBall():
     global target
     itemNumber = canvas.find_withtag('playerBall')
-    move_in_direction(itemNumber,target)
+    move_in_direction(itemNumber, target)
     #canvas.move(itemNumber, 0, 10)
     coords = canvas.coords(itemNumber)
     if coords[3] > 850:
@@ -87,7 +90,7 @@ def drawShootingLine(event, *rest):
 
 
 def mouseClicked(event, *rest):
-    global target #need to put ball in a class
+    global target  # need to put ball in a class
     target = [event.x, event.y]
     master.after(30, moveBall)
 
