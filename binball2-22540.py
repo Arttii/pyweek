@@ -50,6 +50,7 @@ def move_in_direction(itemNumber,target):
 
     coords = canvas.coords(itemNumber)
 
+    # a bit hacky at the moment
 
     tx = target[0] -  (coords[0]+18)
     ty = target[1] - (coords[1]+18)
@@ -61,7 +62,7 @@ def move_in_direction(itemNumber,target):
 
 
 def moveBall():
-    global target 
+    global target
     itemNumber = canvas.find_withtag('playerBall')
     move_in_direction(itemNumber,target)
     #canvas.move(itemNumber, 0, 10)
