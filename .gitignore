@@ -3,6 +3,9 @@ Desktop.ini
 *.vspscc
 *.sbr
 ipch/
+main1/
+testbed/
+examples/
 DocProject/buildhelp/
 *.aps
 ehthumbs.db
