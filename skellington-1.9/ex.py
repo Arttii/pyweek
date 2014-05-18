@@ -48,31 +48,32 @@ class BuildExe:
         self.project_name = "Angry Bits"
  
         #Project url
-        self.project_url = "about:none"
+        self.project_url = "https://pyweek.org/e/ccTeam/"
  
         #Version of program
-        self.project_version = "1.0"
+        self.project_version = "0.0"
  
         #License of the program
-        self.license = "Angry Bits License"
+        self.license = 'Copyright (c) 2014 Artyom Topchyan\n \n This software is provided as is, without any express or implied\n warranty.  In no event will the authors be held liable for any damages\n arising from the use of this software.\n Permission is granted to anyone to use this software for any purpose,\n including commercial applications, and to alter it and redistribute it\n freely, subject to the following restrictions:\n 1. The origin of this software must not be misrepresented; you must not\n claim that you wrote the original software. If you use this software\n in a product, an acknowledgment in the product documentation would be\n appreciated but is not required.\n 2. Altered source versions must be plainly marked as such, and must not be\n misrepresented as being the original software.\n 3. This notice may not be removed or altered from any source distribution.'
+
  
         #Auhor of program
-        self.author_name = "Artyom Topchyan"
-        self.author_email = " "
-        self.copyright = "Copyright (c) 2014 Artyom Topchyan."
+        self.author_name = "ccTeam"
+        self.author_email = "example@example.com"
+        self.copyright = "Copyright (c) 2014 ccTeam."
  
         #Description
-        self.project_description = "Angry Bits - pyweel challenge entry"
+        self.project_description = "Angry Bits - pyweek challenge entry by ccTeam"
  
         #Icon file (None will use pygame default icon)
-        self.icon_file = None
+        self.icon_file = 'C:\\Users\\Artyom\\SkyDrive\\pyweek\\skellington-1.9\\icon.ico'
  
         #Extra files/dirs copied to game
         self.extra_datas = []
  
         #Extra/excludes python modules
         self.extra_modules = []
-        self.exclude_modules = []
+        self.exclude_modules =  ['numpy','Tkconstants','Tkinter']+['_ssl','pyreadline', 'difflib', 'doctest', 'locale',  'pickle', 'calendar']
         
         #DLL Excludes
         self.exclude_dll = ['']
@@ -126,7 +127,7 @@ class BuildExe:
         #Use the default pygame icon, if none given
         if self.icon_file == None:
             path = os.path.split(pygame.__file__)[0]
-            self.icon_file = os.path.join(path, 'pygame.ico')
+            self.icon_file = 'C:\\Users\\Artyom\\SkyDrive\\pyweek\\skellington-1.9\\icon.ico'
  
         #List all data files to add
         extra_datas = []
