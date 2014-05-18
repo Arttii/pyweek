@@ -90,7 +90,7 @@ class PygameFramework(FrameworkBase):
         print('Initializing pygame framework...')
         # Pygame Initialization
         pygame.init()
-        caption= "Python Box2D Testbed - " + self.name
+        caption="Angry Bits"
         pygame.display.set_caption(caption)
 
         # Screen and debug draw

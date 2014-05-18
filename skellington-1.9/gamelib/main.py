@@ -19,7 +19,6 @@
 from .framework import *
 import framework
 from math import *
-import numpy as np
 from collections import defaultdict
 import random
 from random import shuffle
