@@ -1,7 +1,7 @@
 
 # C++ version Copyright (c) 2006-2007 Erin Catto http://www.box2d.org
 # Python version Copyright (c) 2010 kne / sirkne at gmail dot com
-# Modified 2014 Artyom Topchyan
+# Modified for pyweek challenge 18 Copyright (c) 2014 Artyom Topchyan
 
 # This software is provided 'as-is', without any express or implied
 # warranty.  In no event will the authors be held liable for any damages
@@ -171,8 +171,7 @@ class FrameworkBase(b2ContactListener):
 
         worldManifold = contact.worldManifold
         
-        for i, point in enumerate(state2):
-            # TODO: find some way to speed all of this up.
+        for i, point in enumerate(state2):   
             self.points.append(
                     {
                         'fixtureA' : contact.fixtureA,
@@ -217,4 +216,4 @@ def main(game):
     temp.run()
  
 from .pygame_framework import PygameFramework as Framework
-#s/\.Get\(.\)\(.\{-\}\)()/.\L\1\l\2/g
+ 
